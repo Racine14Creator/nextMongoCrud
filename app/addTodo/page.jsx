@@ -17,7 +17,7 @@ export default function AddTodo() {
         }
 
         try {
-            const res = await fetch("http://localhost:3000/api/todo/", {
+            const res = await fetch("https://todo-omega-olive-97.vercel.app/api/todo/", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
