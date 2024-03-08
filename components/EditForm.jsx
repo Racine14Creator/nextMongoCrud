@@ -14,7 +14,7 @@ export default function EditForm({ todo }) {
         const url = "https://todo-omega-olive-97.vercel.app/"
 
         try {
-            const res = await fetch(`${url}/api/todo/${todo.id}`, {
+            const res = await fetch(`${url}api/todo/${todo.id}`, {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json"
