@@ -11,8 +11,10 @@ export default function EditForm({ todo }) {
     const handleSubmit = async (event) => {
         event.preventDefault();
 
+        const url = "https://todo-omega-olive-97.vercel.app/"
+
         try {
-            const res = await fetch(`http://localhost:3000/api/todo/${todo.id}`, {
+            const res = await fetch(`${url}/api/todo/${todo.id}`, {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json"

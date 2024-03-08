@@ -11,7 +11,7 @@ const RemoveBtn = ({ id }) => {
         const confirmed = confirm("Are you sure?")
 
         if (confirmed) {
-            const res = await fetch(`http://localhost:3000/api/todo/?id=${id}`, { method: "DELETE" })
+            const res = await fetch(`https://todo-omega-olive-97.vercel.app/api/todo/?id=${id}`, { method: "DELETE" })
             if (res.ok) {
                 router.refresh()
             }

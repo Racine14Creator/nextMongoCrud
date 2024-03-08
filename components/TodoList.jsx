@@ -6,7 +6,7 @@ import { HiPencilAlt } from "react-icons/hi"
 
 const getTodos = async function () {
     try {
-        const res = await fetch('http://localhost:3000/api/todo/', { cache: 'no-store' })
+        const res = await fetch('https://todo-omega-olive-97.vercel.app/api/todo/', { cache: 'no-store' })
 
         if (!res.ok) { throw new Error("Failed to fetch Todos") }
 
