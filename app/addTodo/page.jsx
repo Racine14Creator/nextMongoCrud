@@ -1,15 +1,17 @@
-
 "use client"
+
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 
 export default function AddTodo() {
+
     const [title, setTitle] = useState("");
     const [desc, setDesc] = useState("");
 
     const router = useRouter();
 
     const handleSubmit = async (e) => {
+
         e.preventDefault();
         if (!title || !desc) {
             alert("Title and Description are required");
