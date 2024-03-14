@@ -3,7 +3,7 @@ import EditForm from "@/components/EditForm";
 
 const getTodoById = async function (id) {
     try {
-        const res = await fetch(`http://localhost:3000/api/todo/${id}`, { cache: "no-store" })
+        const res = await fetch(`https://todo-omega-olive-97.vercel.app/api/todo/${id}`, { cache: "no-store" })
         if (!res.ok) { throw new Error("Failed to fetch topic") }
         return res.json()
     } catch (error) {
