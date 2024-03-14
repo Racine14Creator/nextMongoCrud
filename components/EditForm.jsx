@@ -4,8 +4,8 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 
 export default function EditForm({ todo }) {
-    const [newTitle, setNewTitle] = useState(todo.title);
-    const [newDesc, setNewDesc] = useState(todo.desc);
+    const [newTitle, setNewTitle] = useState(todo.todo.title);
+    const [newDesc, setNewDesc] = useState(todo.todo.desc);
     const router = useRouter();
 
     const handleSubmit = async (event) => {
@@ -14,7 +14,7 @@ export default function EditForm({ todo }) {
         const url = "https://todo-omega-olive-97.vercel.app/"
 
         try {
-            const res = await fetch(`${url}api/todo/${todo.id}`, {
+            const res = await fetch(`${url}api/todo/${todo.todo.id}`, {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json"
