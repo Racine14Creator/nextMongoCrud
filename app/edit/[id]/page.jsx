@@ -1,4 +1,4 @@
-// "use client"
+
 import EditForm from "@/components/EditForm";
 
 const getTodoById = async function (id) {
@@ -14,9 +14,8 @@ const getTodoById = async function (id) {
 export default async function EditPage({ params }) {
     const { id } = params
     const todo = await getTodoById(id)
+
     const { title, desc } = todo.todo
 
-    console.log(todo.todo)
-
-    return <EditForm todo={todo} id={id} title={title} desc={desc} />
+    return <EditForm id={id} title={title} desc={desc} />
 }

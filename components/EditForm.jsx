@@ -3,18 +3,19 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 
-export default function EditForm({ todo }) {
-    const [newTitle, setNewTitle] = useState(todo.todo.title);
-    const [newDesc, setNewDesc] = useState(todo.todo.desc);
+export default function EditForm({ id, title, desc }) {
+    const [newTitle, setNewTitle] = useState(title);
+    const [newDesc, setNewDesc] = useState(desc);
     const router = useRouter();
 
     const handleSubmit = async (event) => {
+
         event.preventDefault();
 
         const url = "https://todo-omega-olive-97.vercel.app/"
 
         try {
-            const res = await fetch(`${url}api/todo/${todo.todo.id}`, {
+            const res = await fetch(`${url}api/todo/${id}`, {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json"
@@ -25,9 +26,12 @@ export default function EditForm({ todo }) {
             if (!res.ok) {
                 throw new Error("Failed to update todo");
             }
+
             router.reload(); // Use router.reload() to reload the page
             router.push("/");
+
         } catch (error) {
+
             console.log(error);
         }
     };
