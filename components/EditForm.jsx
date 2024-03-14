@@ -37,7 +37,7 @@ export default function EditForm({ id, title, desc }) {
 
     return (
         <form onSubmit={handleSubmit} className="flex flex-col">
-            <h3 className="text-2xl font-bold">Update: {id}</h3>
+            <h3 className="text-2xl font-bold">Update:</h3>
             <input
                 type="text"
                 name="title"
