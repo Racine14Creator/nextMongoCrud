@@ -19,3 +19,20 @@ export async function GET(request, { params }) {
 
     return NextResponse.json({ todo }, { status: 200 })
 }
+
+export async function PUT(req, { params }) {
+    const { id } = params
+    await connectMongoDB()
+
+    const { newTitle, newDesc } = await req.json()
+
+    const todo = await Todo.findByIdAndUpdate(id, {
+        newTitle, newDesc
+    })
+    if (todo) { return NextResponse.json({ todo }, { status: 200 }) } else {
+        return NextResponse.json(
+            { message: "Something went wrong" },
+            { status: 500 }
+        )
+    }
+}
