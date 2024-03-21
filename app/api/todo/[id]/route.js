@@ -8,10 +8,10 @@ export async function PUT(request, { params }) {
     await connectMongoDB()
 
     await Todo.findByIdAndUpdate(id, { title, desc })
-    return NextResponse.json({ message: "Topic updated" }, { status: 200 })
+    return NextResponse.json({ message: "Todo updated" }, { status: 200 })
 }
 
-export async function GET(request, { params }) {
+export async function GET({ params }) {
     const { id } = params
     await connectMongoDB()
 
