@@ -13,6 +13,7 @@ const navLinks = [
 const Navbar = async () => {
     
     const {isAuthenticated} = getKindeServerSession()
+    // const user = await getUser()
 
     const pathname = usePathname()
 
@@ -22,7 +23,7 @@ const Navbar = async () => {
             <ul className="flex gap-x-2">
                 {await isAuthenticated() ? (
                     <>
-                    {navLinks.map((item, index)=>(
+                        {navLinks.map((item, index)=>(
                         <li key={index}>
                             <Link href={item.href} className={`${pathname === item.href ? 'bg-white' : 'bg-transparent'} p-2`}>
                             {item.name}
@@ -37,7 +38,6 @@ const Navbar = async () => {
                         <li><RegisterLink className="bg-white p-2">Register</RegisterLink></li>
                     </>
                 )}
-                
             </ul>
         </nav>
     )
