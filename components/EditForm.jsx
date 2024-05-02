@@ -27,7 +27,7 @@ export default function EditForm({ id, title, desc }) {
                 throw new Error("Failed to update todo");
             }
             router.refresh()
-            router.push("/");
+            router.push("/data");
 
         } catch (error) {
 

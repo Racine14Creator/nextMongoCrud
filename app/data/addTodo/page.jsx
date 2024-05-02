@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+const url = process.env.NEXT_PUBLIC_URL
 
 export default function AddTodo() {
 
@@ -19,7 +20,7 @@ export default function AddTodo() {
         }
 
         try {
-            const res = await fetch("https://todo-omega-olive-97.vercel.app/api/todo/", {
+            const res = await fetch(`${url}`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"

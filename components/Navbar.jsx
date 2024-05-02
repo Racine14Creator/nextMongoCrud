@@ -8,7 +8,7 @@ import NavbarItem from "./NavbarItem";
 const Navbar = async () => {
 
     return (
-        <nav className="flex justify-between items-center bg-slate-700 px-8 py-3">
+        <nav className="sticky top-0 flex justify-between items-center bg-slate-700 px-8 py-3">
             <Link href={"/"} className="text-white font-bold">Racine14 Todo</Link>
             <ul className="flex gap-x-2">
                 <NavbarItem/>

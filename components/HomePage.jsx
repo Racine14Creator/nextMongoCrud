@@ -1,8 +1,15 @@
 "use client"
 
+import { redirect } from "next/navigation";
 import Scene from "./Scene";
+import { useKindeBrowserClient } from "@kinde-oss/kinde-auth-nextjs";
 
 export default function HomePage(){
+    const {isAuthenticated} = useKindeBrowserClient()
+
+    if(isAuthenticated){
+        redirect('/dashboard')
+    }
     return(
        <>
         <Scene/>

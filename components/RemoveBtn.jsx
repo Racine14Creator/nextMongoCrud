@@ -3,22 +3,29 @@
 import { HiOutlineTrash } from "react-icons/hi"
 import { useRouter } from "next/navigation"
 
+const url = process.env.NEXT_PUBLIC_URL
 
 const RemoveBtn = ({ id }) => {
+    
     const router = useRouter();
 
     const removeTodo = async function () {
+
         const confirmed = confirm("Are you sure?")
 
         if (confirmed) {
-            const res = await fetch(`https://todo-omega-olive-97.vercel.app/api/todo/?id=${id}`, { method: "DELETE" })
+    
+            const res = await fetch(`${url}api/todo/?id=${id}`, { method: "DELETE" })
+    
             if (res.ok) {
                 router.refresh()
             }
+            
         }
     }
+
     return (
-        <button onClick={removeTodo} className="text-red-400">
+        <button onClick={removeTodo} className="text-red">
             <HiOutlineTrash size={24} />
         </button>
     )

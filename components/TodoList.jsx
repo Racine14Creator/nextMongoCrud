@@ -3,10 +3,12 @@ import Link from "next/link";
 import RemoveBtn from "./RemoveBtn";
 import { HiPencilAlt } from "react-icons/hi"
 
-
+const onlineURL = "https://todo-omega-olive-97.vercel.app/api/todo/"
+const url = process.env.NEXT_PUBLIC_URL
+// console.log(url)
 const getTodos = async function () {
     try {
-        const res = await fetch('https://todo-omega-olive-97.vercel.app/api/todo/', { cache: 'no-store' })
+        const res = await fetch(`${url}/api/todo`, { cache: 'no-store' })
 
         if (!res.ok) { throw new Error("Failed to fetch Todos") }
 
@@ -21,6 +23,10 @@ export default async function TodoList() {
     const { todos } = await getTodos();
 
     return <>
+        <div className="flex justify-between items-center">
+            <h3 className="text-3xlfont-bold">Data</h3>
+            <Link href={'/data/addTodo'} className="bg-red text-white px-4 py-2 rounded-md">Add Data</Link>
+        </div>
         {todos.map((todo) => (
             <div className="shadow-md p-4 border border-slate-300 my-3 flex justify-between items-start gap-5" key={todo._id}>
                 <div>
@@ -31,7 +37,7 @@ export default async function TodoList() {
                 </div>
                 <div className="flex justify-between gap-5">
                     <RemoveBtn id={todo._id} />
-                    <Link href={`/edit/${todo._id}`}>
+                    <Link href={`/data/${todo._id}`}>
                         <HiPencilAlt size={24} />
                     </Link>
                 </div>
