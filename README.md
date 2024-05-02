@@ -34,3 +34,18 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+# Kinde 
+
+In .env.local
+
+```js
+KINDE_CLIENT_ID = 224c0f50bfb8446a8d43ca7f7e6888da
+KINDE_CLIENT_SECRET = xxxxxxxxxxx
+KINDE_ISSUER_URL = https://racine14ui.kinde.com
+KINDE_SITE_URL = xxxxxx
+KINDE_POST_LOGOUT_REDIRECT_URL = xxxxxx
+KINDE_POST_LOGIN_REDIRECT_URL = xxxxxx
+
+NEXT_PUBLIC_URL = "http://localhost:3000/"
+```
