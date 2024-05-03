@@ -7,7 +7,9 @@ export async function POST(request) {
     const { title, desc } = await request.json()
 
     await connectMongoDB()
+
     await Todo.create({ title, desc })
+    
     return NextResponse.json({ message: "Todo Created" }, { status: 201 })
 }
 

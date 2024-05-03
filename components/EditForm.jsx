@@ -3,6 +3,8 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 
+
+const url = process.env.NEXT_PUBLIC_URL
 export default function EditForm({ id, title, desc }) {
     const [newTitle, setNewTitle] = useState(title);
     const [newDesc, setNewDesc] = useState(desc);
@@ -12,9 +14,8 @@ export default function EditForm({ id, title, desc }) {
 
         event.preventDefault();
 
-        const url = "https://todo-omega-olive-97.vercel.app/"
-
         try {
+            
             const res = await fetch(`${url}api/todo/${id}`, {
                 method: "PUT",
                 headers: {
